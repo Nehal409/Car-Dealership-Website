@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="/public/javascript/car-child1.js"></script>
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="logo"><a href="index.html">NK MOTORS</a></h1>
+      <div class="search">
+        <form action="#">
+          <input type="text" placeholder=" Search Cars" name="search" />
+          <button>
+            <i class="fa fa-search" style="font-size: 18px"> </i>
+          </button>
+        </form>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cars.html">Cars</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href="login.html"><i class="fa fa-fw fa-user"></i>Login</a>
+        </li>
+      </ul>
+    </header>
+    <br />
+
+    <!-- Top car picture -->
+    <div class="add">
+      <img class="car1" src="https://www.dropbox.com/s/ueq2ju7kilqkl4h/car2.png?raw=1" alt="car-photo" />
+    </div>
+    <br />
+
+    <!-- Picture Links  -->
+    <div id="table"></div>
+
+    <!-- View All Cars Buttons -->
+    <div class="view-div">
+      <a class="view-btn" href="cars.html">View All Cars</a>
+      <br />
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4><img src="https://www.dropbox.com/s/y10ic2fleo30lq0/logo_nk_motors.JPG?raw=1" alt="company_logo" /></h4>
+            <ul>
+              <li>
+                Feel free to check more reasons <br />
+                for becoming our client and having <br />
+                a hassle-free buying experience.
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Info</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="cars.html">New Cars</a></li>
+              <li><a href="cars.html">Used Cars</a></li>
+              <li><a href="#">Sell My</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#"> <i class="fab fa-facebook-f"></i></a>
+              <a href="#"> <i class="fab fa-twitter"></i></a>
+              <a href="#"> <i class="fab fa-instagram"></i></a>
+              <a href="#"> <i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="contact">
+              <li><i class="fa fa-home"></i>XYZ Avenue, Karachi, Pakistan</li>
+              <li><i class="fa fa-phone"></i>111-111-123</li>
+              <li><i class="fa fa-envelope"></i> <a href="mailto:nehalnasir619@gmail.com">Send Email</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function handleBuyClick(id) {
+        console.log(id);
+        window.localStorage.setItem('vehicleId', id);
+      }
+
+      async function getvehicles() {
+        await axios
+          .get('http://localhost:3000/vehicles?limit=6', {})
+
+          .then((response) => {
+            console.log(response);
+            response.data.json.forEach((element) => {
+              document.getElementById('table').innerHTML += `
+        <ul>
+            <li data-id=${element.name}>
+                <div class="child1">
+            <img id="img" src="${element.img_url}" alt="">
+            <div class="child1-text"> 
+               <h4>${element.name}</h4>
+               <p ><i>Under <span id="price" > ${element.Price}</span></i></p>
+                      </div>
+                      <div class="hover-text-div">
+                        <a href = "car-child1.html" onclick = "handleBuyClick('${element.item_id}');">
+                            <p class="hover-text">Click To Buy</p></a>
+
+                
+                     </div>
+                  </div>
+            </li>
+            
+            </ul>
+     
+        `;
+            });
+          });
+      }
+
+      getvehicles();
+    </script>
+  </body>
+</html>

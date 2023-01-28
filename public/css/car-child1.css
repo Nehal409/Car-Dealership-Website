@@ -1,0 +1,342 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  min-height: 100vh;
+  background-color: #edf0f1;
+}
+
+/* Styling for Header */
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.header a {
+  text-decoration: none;
+}
+.logo {
+  margin: 0;
+  font-size: 1.5em;
+}
+.logo a {
+  color: #ffac1c;
+}
+.logo a:hover {
+  color: #edf0f1;
+}
+.nav-links {
+  margin-top: 5px;
+}
+.logo a,
+.nav-links a {
+  padding-top: 7px;
+
+  padding-bottom: 7px;
+  padding-right: 15px;
+  padding-left: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+}
+.header .nav-links {
+  margin-top: 5px;
+}
+.nav-links a {
+  color: #edf0f1;
+  font-size: 0.99em;
+}
+.nav-links a:hover {
+  color: #ffac1c;
+}
+.header {
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  background-color: #101010;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  width: 100%;
+}
+.search input[type='text'] {
+  width: 300px;
+  height: 27px;
+  border-radius: 5px;
+}
+.search button {
+  background-color: #101010;
+  color: #edf0f1;
+  float: right;
+  padding: 5px 10px;
+  margin-right: 16px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+.search button:hover {
+  color: #ffac1c;
+}
+
+/*Responsive for Header*/
+
+@media (min-width: 769px) {
+  .header,
+  .nav-links {
+    display: flex;
+  }
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header {
+    width: 80%;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+@media (min-width: 1025px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* styling for slideshow */
+.sliding-pics {
+  position: relative;
+  top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 250px;
+}
+
+.slide {
+  border-radius: 10px;
+  width: 60%;
+  height: 100%;
+  border: hidden;
+}
+
+/* styling for click on button get text */
+.tab {
+  float: left;
+  position: relative;
+  top: 130px;
+  width: 30%;
+  height: 300px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 27px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ffac1c;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ffac1c;
+}
+
+/* Style the tab content */
+.tabcontent {
+  font-size: 1.8em;
+  float: left;
+  padding: 0px 12px;
+  width: 70%;
+  height: 300px;
+  display: none;
+  color: #101010;
+  position: relative;
+  top: 130px;
+}
+
+/* radio buttons styling */
+.dealer-form input,
+label {
+  color: #101010;
+  position: relative;
+  top: 20px;
+  left: 120px;
+  margin: 3px;
+}
+
+#deal1,
+#deal2,
+#deal3 {
+  position: relative;
+  height: 40px;
+  top: 30px;
+}
+
+/* purchase button styling */
+.submit {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.submit,
+#dealerName {
+  padding-right: 150px;
+}
+
+.submit a {
+  text-decoration: none;
+}
+
+#submi {
+  width: 200px;
+  height: 50px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  background-color: #101010;
+  color: #edf0f1;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+}
+#submi:hover {
+  color: #ffac1c;
+}
+#dealerName {
+  font-size: 1.2em;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  padding: auto;
+}
+
+/* Clear floats after the tab */
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.full {
+  width: 100%;
+  height: 700px;
+}
+
+/*Styling for Footer*/
+
+.footer {
+  background-color: #101010;
+  padding: 70px 0;
+  position: block;
+  bottom: 0;
+  width: 100%;
+  height: 280px;
+}
+
+.container {
+  margin: auto;
+
+  max-width: 1170px;
+}
+.footer ul {
+  list-style: none;
+}
+.footer img {
+  width: 130px;
+  height: 70px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffac1c;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.footer-col ul,
+li {
+  margin-bottom: 10px;
+}
+.footer a,
+ul,
+li {
+  text-decoration: none;
+  color: #edf0f1;
+  font-weight: 3000;
+  transition: all 0.3s ease;
+}
+.footer a:hover {
+  color: #ffac1c;
+  padding-left: 5px;
+}
+.social-links i {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: #968d8d;
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50px;
+  transition: all 0.6s ease;
+}
+.footer-col .social-links i:hover {
+  color: #ffac1c;
+}
+.contact i {
+  padding-right: 10px;
+}
+
+/*Responsive for Footer*/
+
+@media (max-width: 769px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 574px) {
+  .footer-col {
+    width: 100%;
+    background-color: #101010;
+  }
+}

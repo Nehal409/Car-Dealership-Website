@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cars</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../css/cars.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="logo"><a href="index.html">NK MOTORS</a></h1>
+      <div class="search">
+        <form action="#">
+          <input type="text" placeholder=" Search Cars" name="search" />
+          <button>
+            <i class="fa fa-search" style="font-size: 18px"> </i>
+          </button>
+        </form>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cars.html">Cars</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href="login.html"><i class="fa fa-fw fa-user"></i>Login</a>
+        </li>
+      </ul>
+    </header>
+    <br />
+
+    <!-- Picture Links  -->
+    <div id="table"></div>
+
+    <script>
+      function handleBuyClick(id) {
+        console.log(id);
+        window.localStorage.setItem('vehicleId', id);
+      }
+
+      async function getvehicles() {
+        try {
+          await axios
+            .get('http://localhost:3000/vehicles')
+
+            .then((response) => {
+              response.data.json.forEach((element) => {
+                document.getElementById('table').innerHTML += `
+        <ul>
+            <li>
+                <div class="child1">
+            <img id="img" src="${element.img_url}" alt="">
+            <div class="child1-text"> 
+               <h4>${element.name}</h4>
+               <p ><i>Under <span id="price" > ${element.Price}</span></i></p>
+                      </div>
+                      <div class="hover-text-div">
+                          <a href="car-child1.html" onclick = "handleBuyClick('${element.item_id}');"><p class="hover-text">Click To Buy</p></a>
+                     </div>
+                  </div>
+            </li>
+            
+            </ul>
+     
+        `;
+              });
+            });
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      getvehicles();
+    </script>
+  </body>
+</html>

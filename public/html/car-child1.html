@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Details</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../css/car-child1.css" />
+    <script src="../javascript/car-child1.js"></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <h1 class="logo"><a href="index.html">NK MOTORS</a></h1>
+      <div class="search">
+        <form action="#">
+          <input type="text" placeholder=" Search Cars" name="search" />
+          <button>
+            <i class="fa fa-search" style="font-size: 18px"> </i>
+          </button>
+        </form>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cars.html">Cars</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href="login.html"><i class="fa fa-fw fa-user"></i>Login</a>
+        </li>
+      </ul>
+    </header>
+    <br />
+
+    <div id="allDetails">
+      <!-- ALL Details will go here -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4><img src="https://www.dropbox.com/s/y10ic2fleo30lq0/logo_nk_motors.JPG?raw=1" alt="" /></h4>
+            <ul>
+              <li>
+                Feel free to check more reasons <br />
+                for becoming our client and having <br />
+                a hassle-free buying experience.
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Info</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#">New Cars</a></li>
+              <li><a href="#">Used Cars</a></li>
+              <li><a href="#">Sell My</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#"> <i class="fab fa-facebook-f"></i></a>
+              <a href="#"> <i class="fab fa-twitter"></i></a>
+              <a href="#"> <i class="fab fa-instagram"></i></a>
+              <a href="#"> <i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="contact">
+              <li><i class="fa fa-home"></i>XYZ Avenue, Karachi, Pakistan</li>
+              <li><i class="fa fa-phone"></i>111-111-123</li>
+              <li><i class="fa fa-envelope"></i><a href="mailto: abc@example.com">Send Email</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function handlePurchaseNow(id) {
+        console.log(id);
+        window.localStorage.setItem('inventoryId', id);
+      }
+
+      const vehicle = window.localStorage.getItem('vehicleId');
+      console.log(vehicle);
+
+      function getTokenFromLocalStorage() {
+        const token = window.localStorage.getItem('myjwtsecret');
+        console.log('the token from local storage is -> ' + token);
+        if (token === null) {
+          return undefined;
+        }
+        return token;
+      }
+
+      async function getvehicles() {
+        try {
+          await axios
+            .get(`http://localhost:3000/users/inventory/${vehicle}`, {
+              headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` }
+            })
+
+            .then((response) => {
+              response.data.json.forEach((element) => {
+                document.getElementById('allDetails').innerHTML += `
+             
+            <div class="sliding-pics">
+                <img class="slide" name="slide" src="${element.img_url}">
+           </div>
+
+<div class="full">           
+<div class="tab">
+  <button class="tablinks" onmouseover="openCity(event, 'specs')">VEHICLE DETAILS</button>
+  <button class="tablinks" onmouseover="openCity(event, 'dealer')">DEALER DETAILS</button>
+</div>
+
+<div id="specs" class="tabcontent">
+  <h2>${element.name}</h2>
+  <p> <b> Model </b>:  ${element.model}</p>
+  <p> <b>Make </b>: ${element.make} </p>
+  <p> <b>Status </b>: ${element.status}</p>
+  <p> <b> Engine Type </b>: ${element.engine_type}</p>
+  <p> <b> Engine Capacity </b>: ${element.engine_capacity} </p>
+  <p> <b> Transmission </b>:  ${element.transmission} </p>
+  <p> <b> Color </b>:  ${element.color}</p>
+  <p> <b> Mileage </b>:  ${element.mileage}</p>
+</div>
+
+<div id="dealer" class="tabcontent">
+  <h3 id="text">Following is the dealer available for this car.</h3>
+    <div  class="dealer-form">
+          <h6 id="dealerName"> ${element.company_name}</h6>
+          </div>
+          <div class="submit">
+            
+            <a  href="purchase-now.html" onclick = "handlePurchaseNow('${element.item_id}');" >
+                <p id="submi">Purchase Now</p></a>
+            
+        </div>
+
+</div>
+        <div class="clearfix"></div>
+         
+             `;
+              });
+            });
+        } catch (error) {
+          console.log(error);
+          window.location.href = 'login.html';
+        }
+      }
+
+      getvehicles();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,291 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  min-height: 100vh;
+  background-color: #edf0f1;
+}
+
+/* Styling for Header */
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.header a {
+  text-decoration: none;
+}
+.logo {
+  margin: 0;
+  font-size: 1.5em;
+}
+.logo a {
+  color: #ffac1c;
+}
+.logo a:hover {
+  color: #edf0f1;
+}
+.nav-links {
+  margin-top: 5px;
+}
+.logo a,
+.nav-links a {
+  padding-top: 7px;
+
+  padding-bottom: 7px;
+  padding-right: 15px;
+  padding-left: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+}
+.header .nav-links {
+  margin-top: 5px;
+}
+.nav-links a {
+  color: #edf0f1;
+  font-size: 0.99em;
+}
+.nav-links a:hover {
+  color: #ffac1c;
+}
+.header {
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  background-color: #101010;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  width: 100%;
+}
+.search input[type='text'] {
+  width: 300px;
+  height: 27px;
+  border-radius: 5px;
+}
+.search button {
+  background-color: #101010;
+  color: #edf0f1;
+  float: right;
+  padding: 5px 10px;
+  margin-right: 16px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+.search button:hover {
+  color: #ffac1c;
+}
+
+/*Responsive for Header*/
+
+@media (min-width: 769px) {
+  .header,
+  .nav-links {
+    display: flex;
+  }
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header {
+    width: 80%;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+@media (min-width: 1025px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* here are your purchases styling */
+.text {
+  width: 100%;
+  height: 70px;
+  position: relative;
+  top: 60px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
+/* view cars styling */
+.parent,
+.parent-2 {
+  width: 100%;
+  height: 450px;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  top: 20px;
+}
+
+.parent-2 {
+  position: relative;
+  top: -50px;
+}
+.child1,
+.child2,
+.child-3,
+.child-4 {
+  flex-shrink: 1;
+  flex-wrap: wrap;
+  height: 300px;
+  position: relative;
+}
+
+.child1 img,
+.child2 img,
+.child-3 img,
+.child-4 img {
+  width: 300px;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* Text on image */
+.child1-text {
+  position: absolute;
+  top: 63%;
+  color: #edf0f1;
+  padding: 20px;
+}
+.child1-text h4 {
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+.child1-text p {
+  font-size: 20px;
+}
+
+/* hover text on picture */
+.hover-text-div {
+  position: absolute;
+  top: 0;
+  text-decoration: none;
+  font-size: 2em;
+  font-weight: bold;
+  color: #ffac1c;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.6);
+  transition: opacity 0.3s;
+}
+.hover-text-div:hover {
+  opacity: 1;
+  border-radius: 10px;
+}
+.hover-text-div a {
+  text-decoration: none;
+  color: #ffac1c;
+}
+
+/*Styling for Footer*/
+
+.footer {
+  background-color: #101010;
+  padding: 70px 0;
+  position: block;
+  bottom: 0;
+  width: 100%;
+  height: 280px;
+}
+
+.container {
+  margin: auto;
+
+  max-width: 1170px;
+}
+.footer ul {
+  list-style: none;
+}
+.footer img {
+  width: 130px;
+  height: 70px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffac1c;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.footer-col ul,
+li {
+  margin-bottom: 10px;
+}
+.footer a,
+ul,
+li {
+  text-decoration: none;
+  color: #edf0f1;
+  font-weight: 3000;
+  transition: all 0.3s ease;
+}
+.footer a:hover {
+  color: #ffac1c;
+  padding-left: 5px;
+}
+.social-links i {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: #968d8d;
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50px;
+  transition: all 0.6s ease;
+}
+.footer-col .social-links i:hover {
+  color: #ffac1c;
+}
+.contact i {
+  padding-right: 10px;
+}
+
+/*Responsive for Footer*/
+
+@media (max-width: 769px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 574px) {
+  .footer-col {
+    width: 100%;
+    background-color: #101010;
+  }
+}

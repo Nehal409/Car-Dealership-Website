@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  min-height: 100vh;
+  background-color: #edf0f1;
+}
+
+/* Styling for Header */
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.header a {
+  text-decoration: none;
+}
+.logo {
+  margin: 0;
+  font-size: 1.5em;
+}
+.logo a {
+  color: #ffac1c;
+}
+.logo a:hover {
+  color: #edf0f1;
+}
+.nav-links {
+  margin-top: 5px;
+}
+.logo a,
+.nav-links a {
+  padding-top: 7px;
+
+  padding-bottom: 7px;
+  padding-right: 15px;
+  padding-left: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+}
+.header .nav-links {
+  margin-top: 5px;
+}
+.nav-links a {
+  color: #edf0f1;
+  font-size: 0.99em;
+}
+.nav-links a:hover {
+  color: #ffac1c;
+}
+.header {
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  background-color: #101010;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  width: 100%;
+}
+.search input[type='text'] {
+  width: 300px;
+  height: 27px;
+  border-radius: 5px;
+}
+.search button {
+  background-color: #101010;
+  color: #edf0f1;
+  float: right;
+  padding: 5px 10px;
+  margin-right: 16px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+.search button:hover {
+  color: #ffac1c;
+}
+
+/*Responsive for Header*/
+
+@media (min-width: 769px) {
+  .header,
+  .nav-links {
+    display: flex;
+  }
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header {
+    width: 80%;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+@media (min-width: 1025px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* pic under header     */
+.add {
+  width: 100%;
+  height: 350px;
+  padding: 40px 2px;
+  margin: 0;
+}
+.car1 {
+  height: 100%;
+  width: 100%;
+}
+
+#table ul {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  width: 33%;
+  text-align: left;
+  float: left;
+  justify-content: space-around;
+}
+#table ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px;
+}
+
+#table {
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+}
+
+/* view cars styling */
+.parent {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.child1,
+.child2 {
+  flex-shrink: 1;
+  flex-wrap: wrap;
+  height: 300px;
+  position: relative;
+}
+
+.child1 img {
+  width: 390px;
+  height: 100%;
+}
+
+.child2 img {
+  width: 819px;
+  height: 100%;
+}
+
+.parent-2 {
+  width: 100%;
+  height: 350px;
+  margin-top: -20px;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: all 0.6s ease;
+}
+.child-3,
+.child-4 {
+  flex-shrink: 1;
+  flex-wrap: wrap;
+  height: 300px;
+  position: relative;
+}
+.child-3 img {
+  width: 390px;
+  height: 100%;
+}
+
+.child-4 img {
+  width: 819px;
+  height: 100%;
+}
+
+/* Text on image */
+.child1-text {
+  position: absolute;
+  top: 63%;
+  color: #edf0f1;
+  padding: 20px;
+}
+.child1-text h4 {
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+.child1-text p {
+  font-size: 20px;
+}
+
+/* hover text on picture */
+.hover-text-div {
+  position: absolute;
+  top: 0;
+  text-decoration: none;
+  font-size: 3em;
+  font-weight: bold;
+  color: #ffac1c;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.6);
+  transition: opacity 0.3s;
+}
+.hover-text-div:hover {
+  opacity: 1;
+}
+.hover-text-div a {
+  text-decoration: none;
+  color: #ffac1c;
+}

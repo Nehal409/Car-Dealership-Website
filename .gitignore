@@ -1,0 +1,4 @@
+.prettierrc
+/.vscode
+/node_modules
+/backend-src/.env
